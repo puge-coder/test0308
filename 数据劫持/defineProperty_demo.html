@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty--demo</title>
+</head>
+
+<body>
+    <input type="text" id="myInput" />
+    <div id="content"> </div>
+    <script>
+        var text;
+        //全局data对象
+        window.data = {};
+        //视图层 到数据层
+        myInput.addEventListener("input", function (e) {
+            //将输入框输入的值获取，赋值给text
+            text = e.target.value;
+            window.data.value = text;
+        })
+        //数据层到视图层
+        Object.defineProperty(window.data, "value", {
+            get() {
+                return "";
+            },
+            set(v) {
+                // 操作视图
+                content.innerText = v;
+            }
+        })
+    </script>
+</body>
+
+</html>

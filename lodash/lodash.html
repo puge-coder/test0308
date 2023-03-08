@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lodash</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <script>
+        //_是lodash封装好的
+        console.log(_);
+        let arr = [1, 2, 3, 4, 5];
+        arr = _.chunk(arr, 2)
+        console.log(arr);
+
+        let obj = {
+            name: "zs",
+            job: {
+                name: 'web',
+                sal: '12k'
+            }
+        }
+        //_.cloneDeep 表示深拷贝
+        let newObj = _.cloneDeep(obj);
+        console.log(newObj);
+        newObj.name = "ls";
+        console.log(obj.name);
+    </script>
+</body>
+
+</html>

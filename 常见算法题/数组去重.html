@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重-Set/forEach/filter/Map</title>
+</head>
+
+<body>
+    <script>
+        // 去掉数组中重复的元素
+        let arr = [1, 1, "s", "s", true, false, true, 3, "a"];
+        // newArr--新的容器，保存不一样的元素
+        let newArr = [];
+        arr.forEach((key, index) => {
+            //若新容器中没有这个元素，就添加进去
+            if (newArr.indexOf(key) === -1) {
+                newArr.push(key)
+            }
+        })
+        console.log(newArr);
+
+        //2.Set--Es6中的数据结构 --集合 
+        //元素不可重复
+        // Set自动将重复的元素去掉
+        //let newArr2 = Array.from(new Set(arr)) 
+        let newArr2 = [...new Set(arr)];
+        console.log(newArr2);
+
+        //Map---键可以是一个对象
+
+        //filter item当前元素 index下标  self是当前数组
+        let newArr3 = arr.filter((item, index, self) => {
+            //index是下标 
+            //item在当前数组（arr）中，返回item这个元素第一次出现下标
+            return self.indexOf(item) === index
+        })
+        console.log(newArr3);
+    </script>
+</body>
+
+</html>

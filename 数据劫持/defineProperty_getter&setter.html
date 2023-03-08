@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty--getter与setter</title>
+</head>
+
+<body>
+    <script>
+        //Vue2中数组中的api进行了重写 -- 7个
+        let obj = {
+            name: "张三",
+            age: 20
+        }
+        Object.defineProperty(obj, "name", {
+            //get函数表示取值--自动执行get函数
+            // setter--设置值时会自动执行
+            get: function () {
+                console.log("get函数运行");
+                return this._name || "张三";
+            },
+            set: function (newName) {
+                console.log("set函数运行");
+                this._name = newName;
+            }
+        })
+        // obj.name是获取name属性，自动调用getter
+        console.log(obj.name);
+        obj.name = "李四";
+        console.log(obj.name);
+    </script>
+</body>
+
+</html>

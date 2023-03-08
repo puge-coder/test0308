@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串中最多的</title>
+</head>
+
+<body>
+    <script>
+        let str = "2217gaoxinjiuye666";
+        //记录每个字符出现的个数 -- 字符 ：个数
+        let obj = {}
+        for (var i = 0; i < str.length; i++) {
+            //取出字符
+            // 先查看obj中是否有这个字符--若有加1，没有初始为1
+            var char = str.charAt(i);
+            if (obj[char]) {
+                obj[char]++;
+            } else {
+                obj[char] = 1;
+            }
+        }
+        console.log(obj);
+        //比较这个对象中哪个字符出现的最多
+        //max是保存较大值
+        let max = 0;
+        let maxChar = null;
+        for (var key in obj) {
+            //若当前的值没有max大，将这个值赋值为max
+            if (max < obj[key]) {
+                max = obj[key];
+                maxChar = key;
+            }
+        }
+        console.log("最多的个数是" + max);
+        console.log("最多的字符是" + maxChar);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty--配置项enumerable</title>
+</head>
+
+<body>
+    <script>
+        // value配置表示包含这个属性的值，默认是undefined
+        let obj = {
+            name: "张三",
+            age: 20
+        };
+        // define 定义
+        // property 属性 --多个属性的定义配置
+        // defineProperties---定义时若是多个属性
+        Object.defineProperties(obj, {
+            // name属性的配置
+            // age属性的配置
+            name: {
+                writable: false
+            },
+            age: {
+                writable: true,
+                value: 30
+            },
+        })
+        //输出对象每个属性的值
+        for (var i in obj) {
+            console.log(obj[i]);
+        }
+    </script>
+</body>
+
+</html>

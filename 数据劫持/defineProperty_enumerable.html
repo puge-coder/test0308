@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>defineProperty--配置项enumerable</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: "张三",
+            age: 20
+        }
+        // define 定义
+        // property 属性
+        Object.defineProperty(obj, "name", {
+            //enumerable -- 是否可枚举的配置 
+            enumerable: false
+        })
+
+        for (var i in obj) {
+            //age: 20  输出对象每个属性的值
+            console.log(obj[i]);
+        }
+    </script>
+</body>
+
+</html>

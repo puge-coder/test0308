@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+</head>
+
+<body>
+    <h1 id="content">2217--</h1>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js"></script>
+    <script>
+        // $ 是一个函数的名字，Jquery定义的
+        console.log($);
+
+        var h1 = document.getElementById("content");
+        console.log(h1);
+        // $("选择器") 查找到dom元素
+        // Jquery查找
+        var h1Jquery = $("#content");
+        console.log(h1Jquery);
+        // h1Jquery--数组 1个,通过取出对应的dom元素进行操作
+        // dom-Api
+        h1Jquery[0].innerText = "前程似锦";
+        //Jquery-Api  
+        h1Jquery.text("高薪就业");
+    </script>
+</body>
+
+</html>

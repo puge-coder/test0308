@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery-ajax</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js"></script>
+    <!-- 原生ajax的步骤 -->
+    <script>
+        //url:http://localhost:3001/api/banner/list
+        //http://121.89.205.189:3000/
+        $.ajax({
+            //type表示请求类型 -  get或post
+            type: "get",
+            // 请求的路径
+            url: "http://121.89.205.189:3000/api/banner/list",
+            //成功的回调
+            success: (res) => {
+                console.log(res);
+            },
+            // 若请求错误，执行error内的回调，自动拿到err对象--内置成员
+            // statusText--响应文本
+            error: (err) => {
+                console.log(err.statusText);
+            }
+        })
+    </script>
+</body>
+
+</html>

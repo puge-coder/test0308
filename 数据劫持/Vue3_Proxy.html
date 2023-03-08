@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+
+<body>
+    <!-- es6 Proxy -->
+    <script>
+        const person = {
+            name: "zs",
+            age: 18
+        }
+        let personProxy = new Proxy(person, {
+            // target就是代理对象，key就是键
+            get(target, key) {
+                console.log("获取属性值");
+                return target[key]
+            },
+            // newValue 新的值
+            set(target, key, newValue) {
+                console.log("设置属性值");
+                target[key] = newValue;
+            }
+        })
+        console.log(personProxy.name);
+        personProxy.age = 20;
+        console.log(personProxy.age);
+
+        //数组
+        let arr = [1, 2, 3, 4, 5];
+        const arrProxy = new Proxy(arr, {
+            get(target, key) {
+                console.log("数组的get");
+                return target[key];
+            },
+            set(target, key, value) {
+                console.log("数组的set");
+                target[key] = value;
+            }
+        })
+        console.log(arrProxy[0]);
+        arrProxy[0] = 666;
+        console.log(arrProxy[0]);
+    </script>
+</body>
+
+</html>
